@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def new
-    @title = "Sign up"
+    @title = "Sign up now!"
   end
 end
