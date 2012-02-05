@@ -11,6 +11,7 @@ gem 'sqlite3'
 # groupo de desarrollo
 group :development do
   gem 'rspec-rails'
+  gem 'annotate'
 end
 
 # grupo de test
