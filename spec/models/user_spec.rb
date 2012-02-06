@@ -3,7 +3,12 @@ require 'spec_helper'
 describe User do
   
   before(:each) do
-    @attr = {:name => "RobieMan", :email => "usuario@example.com"}  
+    @attr = {
+      :name => "RobieMan", 
+      :email => "usuario@example.com",
+      :password => "foobar",
+      :password_confirmation => "foobar"
+      }  
   end
   
   it "debe entregar una nueva instancia que entregue atributos validos" do
@@ -54,6 +59,40 @@ describe User do
     User.create!(@attr.merge(:email => upcased_email))
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
+  end
+  
+  describe "validaciones de password" do
+    
+    it "debe requerir un password" do
+      User.new(@attr.merge(:password => "", :password_confirmation => "")).should_not be_valid
+    end
+    
+    it "debe requerir password_confirmation coincidente" do
+      User.new(@attr.merge(:password_confirmation => "invalid")).should_not be_valid
+    end
+    
+    it "debe rechazar password cortos" do
+      short = "a" * 5
+      hash = @attr.merge(:password => short, :password_confirmation => short)
+      User.new(hash).should_not be_valid
+    end
+    
+    it "debe rechazar password largos" do
+      long = "a" * 41
+      hash = @attr.merge(:password => long, :password_confirmation => long )
+      User.new(hash).should_not be_valid
+    end
+  end
+  
+  describe "el cifrado de contrasenyas" do
+    
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+    
+    it "debe tener un atributo de password encriptado" do
+      @user.should respond_to(:encrypted_password)
+    end
   end
     
 end
