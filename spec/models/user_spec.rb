@@ -93,6 +93,10 @@ describe User do
     it "debe tener un atributo de password encriptado" do
       @user.should respond_to(:encrypted_password)
     end
+    
+    it "debe establecer el password encriptado" do
+      @user.encrypted_password.should_not be_blank
+    end
   end
     
 end
