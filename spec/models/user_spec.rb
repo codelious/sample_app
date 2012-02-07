@@ -1,4 +1,4 @@
-require 'spec_helper'
+  require 'spec_helper'
 
 describe User do
   
@@ -96,6 +96,17 @@ describe User do
     
     it "debe establecer el password encriptado" do
       @user.encrypted_password.should_not be_blank
+    end
+    
+    describe "metodo has_password?" do
+      
+      it "debe ser true si los password coinciden" do
+        @user.has_password?(@attr[:password]).should be_true
+      end
+      
+      it "debe ser falso si los password no coinciden" do
+        @user.has_password?("invalid").should be_false
+      end
     end
   end
     
