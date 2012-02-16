@@ -108,6 +108,24 @@ describe User do
         @user.has_password?("invalid").should be_false
       end
     end
+    
+    describe "metodo authenticate" do
+      
+      it "debe retornar nil sobre falta de coincidencia email/password" do
+        wrong_password_user = User.authenticate(@attr[:email], "wrongpass")
+        wrong_password_user.should be_nil
+      end
+      
+      it "debe retornar nil para una direccion email con ningun usuario" do
+        nonexistent_user = User.authenticate("bar@foo.com", @attr[:password])
+        nonexistent_user.should be_nil
+      end
+      
+      it "should return the user on email/password match" do
+        matching_user = User.authenticate(@attr[:email], @attr[:password])
+        matching_user.should == @user
+      end
+    end
   end
     
 end

@@ -7,6 +7,7 @@ gem 'rails', '3.2.1'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'gravatar_image_tag'
 
 # groupo de desarrollo
 group :development do
@@ -19,6 +20,7 @@ group :test do
   gem 'rspec-rails'
   gem 'webrat'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 # Gems used only for assets and not required
