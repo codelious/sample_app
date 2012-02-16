@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # gem 'rails', '3.1.1'
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -11,13 +11,14 @@ gem 'sqlite3'
 # groupo de desarrollo
 group :development do
   gem 'rspec-rails'
-  gem 'annotate'
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 # grupo de test
 group :test do
   gem 'rspec-rails'
   gem 'webrat'
+  gem 'capybara'
 end
 
 # Gems used only for assets and not required
