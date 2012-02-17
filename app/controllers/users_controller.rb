@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
   
   def new
-    @title = "Sign up now!"
+    #@title = "Sign up now!"
+    @user = User.new
   end
 end
