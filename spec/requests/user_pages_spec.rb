@@ -26,6 +26,15 @@ describe "Paginas de usuario" do
       it "debe crear un usuario" do
         expect { click_button "Sign up" }.to change(User, :count).by(1)
       end
+      
+      #describe "despues de guardar el usuario" do
+      #  before { click_button "Sign up" }
+      #  let(:user) { User.find_by_email('user@example.com') }
+      #  
+      #  it { should have_selector('title', text: user.name) }
+      #  it { should have_selector('div.flash.success', text: 'Bienvenido')}
+      #  
+      #end
     end
   end
 end
