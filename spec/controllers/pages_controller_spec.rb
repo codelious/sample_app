@@ -8,11 +8,11 @@ describe PagesController do
   end
   
   describe "GET 'home'" do
-    it "returns http success" do
+    it "retorna http exitoso" do
       get 'home'
       response.should be_success
     end
-    it "should have the right title" do
+    it "debe tener el titulo correcto" do
       get 'home'
       response.should have_selector("title", 
                           :content => @base_title + " | Home")
@@ -20,11 +20,11 @@ describe PagesController do
   end
 
   describe "GET 'contact'" do
-    it "returns http success" do
+    it "retorna http exitoso" do
       get 'contact'
       response.should be_success
     end
-    it "should have the right title" do
+    it "debe tener el titulo correcto" do
       get 'contact'
       response.should have_selector("title", 
                           :content => @base_title + " | Contact")
@@ -32,11 +32,11 @@ describe PagesController do
   end
 
   describe "GET 'about'" do
-    it "returns http success" do
+    it "retorna http exitoso" do
       get 'about'
       response.should be_success
     end
-    it "should have the right title" do
+    it "debe tener el titulo correcto" do
       get 'about'
       response.should have_selector("title", 
                           :content => @base_title + " | About")
@@ -44,11 +44,11 @@ describe PagesController do
   end
   
   describe "GET 'help'" do
-    it "returns http success" do
+    it "retorna http exitoso" do
       get 'help'
       response.should be_success
     end
-    it "should have the right title" do
+    it "debe tener el titulo correcto" do
       get 'help'
       response.should have_selector("title",
                           :content => @base_title + " | Help")
