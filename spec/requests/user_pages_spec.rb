@@ -15,13 +15,18 @@ describe "Paginas de usuario" do
         end
       end
     
-      describe "error messages" do
+      describe "mensajes de error" do
         before { click_button "Sign up" }
 
         let(:error) { 'errores prohiben que este usuario se guarde' }
 
-        it { should have_selector('title', text: 'Sign up') }
-        it { should have_content(error) }
+        it "debe tener title con Sign up" do
+          response.should have_selector('title', :content => 'Sign up')
+        end
+        #it "debe tener contenido de error" do
+        #  response.should have_content(error)
+        #end
+        
       end
             
       describe "con informacion valida" do
@@ -40,9 +45,13 @@ describe "Paginas de usuario" do
           before { click_button "Sign up" }
           let(:user) { User.find_by_email('user@example.com') }
           
-          it { should have_selector('title', :text => user.name) }
-          it { should have_selector('div.flash.success', :text => 'Bienvenido')}
-          
+          it "debe tener titulo con nombre usuario" do
+            response.should have_selector('title', :content => user.name)
+          end
+          it "debe tener flash success con 'Bienvenido'" do
+            response.should have_selector('div.flash.success', :content => 'Bienvenido')
+          end 
+        
         end
       end
   end

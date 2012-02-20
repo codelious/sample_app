@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
   
   def create
+    @title = "Sign up"
     @user = User.new(params[:user])
     if @user.save
       flash[:success] = "Bienvenido a la aplicacion"
