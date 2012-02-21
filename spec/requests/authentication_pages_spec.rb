@@ -22,7 +22,7 @@ describe "Authentication" do
     describe "con informacion invalida" do
       before { click_button "Sign in" }
       
-      it "debe tener un titulo 'Sign in" do
+      it "debe tener un titulo 'Sign in'" do
         response.should have_selector('title', :content => 'Sign in')
       end
       it "debe tener un flash de error 'Invalido'" do
